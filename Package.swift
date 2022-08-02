@@ -5,11 +5,12 @@ import PackageDescription
 
 let package = Package(
     name: "S2S_SDK",
+    platforms: [.iOS(.v10)],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "S2S_SDK",
-            targets: ["S2S_SDK"]),
+            targets: ["s2s_sdk_ios"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -19,10 +20,17 @@ let package = Package(
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
-            name: "S2S_SDK",
+            name: "s2s_sdk_ios",
             dependencies: []),
         .testTarget(
             name: "S2S_SDKTests",
             dependencies: ["S2S_SDK"]),
+        .binaryTarget(
+             name: "S2S-SDK",
+             url:
+               "https://s3.eu-central-1.amazonaws.com/download.sensic.net/s2s/sdk/ios/testing/1/s2s_sdk_ios_1.zip",
+             checksum: "98c8e208f6dc67a6cf625d4432b0911d66359d3944f61d523359275f394083f3"
+           ),
+        
     ]
 )
