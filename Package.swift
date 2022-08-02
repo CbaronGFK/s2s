@@ -22,9 +22,6 @@ let package = Package(
         .target(
             name: "s2s_sdk_ios",
             dependencies: []),
-        .testTarget(
-            name: "S2S_SDKTests",
-            dependencies: ["S2S_SDK"]),
         .binaryTarget(
              name: "S2S-SDK",
              url:
